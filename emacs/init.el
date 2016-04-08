@@ -17,6 +17,7 @@
     elpy
     flycheck
     material-theme
+    magit
     py-autopep8
     ))
 
