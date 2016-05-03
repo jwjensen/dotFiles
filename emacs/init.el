@@ -1,5 +1,5 @@
 ;; init.el --- Emacs configuration
-
+(load-file "/home/jensen/Projects/cedet/cedet-devel-load.el")
 ;; INSTALL PACKAGES
 ;; --------------------------------------
 
@@ -37,7 +37,7 @@
 ;(setq inhibit-startup-message t) ;; hide the startup message
 (load-theme 'material t) ;; load theme
 ;(global-linum-mode t) ;; enable line numbers globally
-
+(menu-bar-mode)
 ;; PYTHON CONFIGURATION
 ;; --------------------------------------
 (display-time)
