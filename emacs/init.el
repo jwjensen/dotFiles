@@ -1,5 +1,5 @@
 ;; init.el --- Emacs configuration
-(load-file "/home/jensen/Projects/cedet/cedet-devel-load.el")
+(load-file "~/Projects/cedet/cedet-devel-load.el")
 ;; INSTALL PACKAGES
 ;; --------------------------------------
 
