@@ -78,7 +78,7 @@ export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM=verbose
 if [ "$color_prompt" = yes ]; then
-    PROMPT_COMMAND='__git_ps1 "$XTERM_TITLE\n${debian_chroot:+($debian_chroot)}[`basename ${VIRTUAL_ENV:-"/x/--"}`] \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;35m\]\w \[\033[01;36m\]\t\[\033[01;0m\]" "\n{\!} \[\033[00m\]\$ "'
+    PROMPT_COMMAND='__git_ps1 "$XTERM_TITLE\n${debian_chroot:+($debian_chroot)} [`basename ${VIRTUAL_ENV:-"/x/--"}`] \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;35m\]\w \[\033[01;36m\]\t\[\033[01;0m\]" "\n{\!} \[\033[00m\]\$ "'
 #    PS1='\n\[\033[01;35m\]$(__git_ps1) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;35m\]\w \[\033[01;36m\]\t \n{\!} \[\033[00m\]\$ '
     export GIT_PS1_SHOWCOLORHINTS=true
 else
@@ -102,8 +102,18 @@ fi
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
-alias dirs='dirs -v'
+alias dl='dirs -v'
 #alias ls='/bin/ls -CF'
+#git:
+alias gb="git branch"
+alias gba="git branch -a"
+alias gc="git commit -v"
+alias gd="git diff|less"
+alias gl="git pull"
+alias gp="git push"
+alias gst="git status"
+
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -125,72 +135,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-svnlog ()
-{
-  WORKDIR="http://svn/svn/repos/dcs2000/branches/work-$1-$2"
-  ARTIFACT=$1
-  svn log --stop-on-copy -v $WORKDIR
-}
-
-svnmerge ()
-{
-  REVISIONS=$1
-  if [ -d Artifacts -a -d DCS/Database ] ; then
-    svn merge -r $REVISIONS $WORKDIR
-    svn stat
-    echo svn rm -m "[artf$ARTIFACT] removing post merge" $WORKDIR >> merged_artf
-  else
-    echo "Needs to be run from root of dcs2000 sandbox"
-  fi
-}
-
-svncommit ()
-{
-  if [ -d Artifacts -a -d DCS/Database ] ; then
-    svn commit -m "[artf$ARTIFACT] merged rev $REVISIONS from branch.  installed $1"
-  else
-    echo "Needs to be run from root of dcs2000 sandbox"
-  fi
-}
-
-svnps ()
-{
-  svn ps svn:keywords 'HeadURL Id' $1
-  svn ps svn:eol-style native $1
-}
-
-svnpd ()
-{ 
-  svn pd svn:mergeinfo $1
-}
-
-# shows available merges from $1
-svnrevs ()
-{
-    svn mergeinfo ^/$1 --show-revs eligible
-}
-
-#creates commit-msg with avail revs, and log for each rev
-# suitable for review before development merging
-svnrevslog ()
-{
-    svnrevs $1 >> commit-msg
-
-    for i in `svnrevs $1`; do
-        echo $i >> commit-msg
-        svn log -r $i ^/$1 -v >> commit-msg
-        echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" >> commit-msg
-    done
-}
-
-#display files referenced by install.sql; display log
-svnchanges ()
-{
-    grep @ Artifacts/$1/install.sql | grep -ve '^--'
-    svn log Artifacts/$1/install.sql
-}
-
-
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
@@ -198,3 +142,4 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 #for virtualenvwrapper:
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+

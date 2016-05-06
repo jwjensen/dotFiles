@@ -51,6 +51,7 @@
 (global-set-key [home] 'beginning-of-buffer)
 (global-set-key [end] 'end-of-buffer)
 
+
 ;;(defvar jensen/vendor-dir (expand-file-name "vendor" user-emacs-directory))
 
 ;;(add-to-list 'load-path jensen/vendor-dir)
@@ -92,6 +93,7 @@
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
+;(add-hook 'shell-mode-hook (setq shell-dirstack-query "command dirs"))
 ;; init.el ends here
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
