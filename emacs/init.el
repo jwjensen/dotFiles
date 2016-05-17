@@ -24,6 +24,7 @@
     magit
     plsql
     sql-indent
+    smart-mode-line
     py-autopep8))
 
 (mapc #'(lambda (package)
@@ -102,7 +103,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("e97dbbb2b1c42b8588e16523824bc0cb3a21b91eefd6502879cf5baa1fa32e10" "f3d6a49e3f4491373028eda655231ec371d79d6d2a628f08d5aa38739340540b" default))))
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "e97dbbb2b1c42b8588e16523824bc0cb3a21b91eefd6502879cf5baa1fa32e10" "f3d6a49e3f4491373028eda655231ec371d79d6d2a628f08d5aa38739340540b" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
