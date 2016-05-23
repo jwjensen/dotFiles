@@ -44,7 +44,7 @@
 (display-time)
 (setq display-time-and-date t)
 
-;(server-start)
+(server-start)
 (setq-default indent-tabs-mode nil)
 ;; make next-line move by line, not displayed line
 (setq line-move-visual nil)
