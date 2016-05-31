@@ -1,3 +1,19 @@
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "e97dbbb2b1c42b8588e16523824bc0cb3a21b91eefd6502879cf5baa1fa32e10" "f3d6a49e3f4491373028eda655231ec371d79d6d2a628f08d5aa38739340540b" default)))
+ '(scroll-bar-mode (quote right)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(scroll-bar ((t (:background "black" :foreground "dark magenta")))))
+
 ;; init.el --- Emacs configuration
 (load-file "~/Projects/cedet/cedet-devel-load.el")
 ;; INSTALL PACKAGES
@@ -39,6 +55,11 @@
 (load-theme 'material t) ;; load theme
 ;(global-linum-mode t) ;; enable line numbers globally
 (menu-bar-mode)
+;; mouse yank should go to where the mouse is, not to the point
+(setq mouse-yank-at-point nil)
+(setq mouse-autoselect-window t)
+
+
 ;; PYTHON CONFIGURATION
 ;; --------------------------------------
 (display-time)
@@ -93,20 +114,5 @@
 ;; enable autopep8 formatting on save
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
-
 ;(add-hook 'shell-mode-hook (setq shell-dirstack-query "command dirs"))
 ;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "e97dbbb2b1c42b8588e16523824bc0cb3a21b91eefd6502879cf5baa1fa32e10" "f3d6a49e3f4491373028eda655231ec371d79d6d2a628f08d5aa38739340540b" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
