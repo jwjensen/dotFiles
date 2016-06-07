@@ -102,7 +102,7 @@ fi
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
-alias dl='dirs -v'
+alias ds='dirs -v'
 #alias ls='/bin/ls -CF'
 #git:
 alias gb="git branch"
