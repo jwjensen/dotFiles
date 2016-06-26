@@ -39,6 +39,9 @@
     git-commit
     magit
     plsql
+    ;pdf-tools
+    ;pdf-tools-server
+    tablist
     sql-indent
     smart-mode-line
     py-autopep8))
