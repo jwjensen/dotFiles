@@ -1,0 +1,39 @@
+[user]
+	name = Jim Jensen
+	email = jjensen@nedelta.com
+[alias]
+	co = checkout
+	stat = status --short --branch
+	cma = commit --all -m
+	qm = !git checkout $1; git merge @{-1}
+	unstage = reset HEAD
+	last = log -1 HEAD
+	desc = describe
+	lg = log --pretty='%Cred%h%Creset | %C(blue)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)[%an]%Creset' --graph
+        dp = diff --word-diff --unified=5
+
+[diff]
+        algorithm = histogram
+
+[apply]
+	whitespace = nowarn
+[push]
+	default = simple
+[core]
+	editor = emacsclient
+	autocrlf = input
+        repositoryformatversion = 0
+        filemode = false
+        bare = false
+        logallrefupdates = true
+        symlinks = true
+        hideDotFiles = dotGitOnly
+        longpaths = true
+	pager = less -RFX
+
+[help]
+	autocorrect = 1
+
+[color]
+	ui = auto
+
