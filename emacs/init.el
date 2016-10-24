@@ -45,6 +45,7 @@
     tablist
     sql-indent
     smart-mode-line
+    ace-window
     py-autopep8))
 
 (mapc #'(lambda (package)
@@ -82,7 +83,8 @@
 (setq c-basic-offset 2)
 (global-set-key [home] 'beginning-of-buffer)
 (global-set-key [end] 'end-of-buffer)
-
+;; for ace-window
+(global-set-key (kbd "C-x o") 'ace-window)
 
 ;;(defvar jensen/vendor-dir (expand-file-name "vendor" user-emacs-directory))
 
