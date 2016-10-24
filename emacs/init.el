@@ -44,8 +44,10 @@
     ;pdf-tools-server
     tablist
     sql-indent
+    pdf-tools
     smart-mode-line
     ace-window
+    fill-column-indicator
     py-autopep8))
 
 (mapc #'(lambda (package)
@@ -85,6 +87,10 @@
 (global-set-key [end] 'end-of-buffer)
 ;; for ace-window
 (global-set-key (kbd "C-x o") 'ace-window)
+;; for pdf-tools
+(pdf-tools-install)
+;; fill column indicator - turn on with M-x fci-mode
+(require 'fill-column-indicator)
 
 ;;(defvar jensen/vendor-dir (expand-file-name "vendor" user-emacs-directory))
 
