@@ -114,6 +114,13 @@
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
+;; virtualenvwrapper.el https://github.com/porterjamesj/virtualenvwrapper.el
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells)
+(venv-initialize-eshell)
+(setq venv-location "~/PythonEnvs")
+(setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
+
 ;; enable autopep8 formatting on save
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
