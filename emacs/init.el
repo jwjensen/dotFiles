@@ -15,7 +15,7 @@
  '(scroll-bar ((t (:background "black" :foreground "dark magenta")))))
 
 ;; init.el --- Emacs configuration
-(load-file "~/Projects/cedet/cedet-devel-load.el")
+;;(load-file "~/Projects/cedet/cedet-devel-load.el")
 ;; INSTALL PACKAGES
 ;; --------------------------------------
 
@@ -64,7 +64,7 @@
 (menu-bar-mode)
 ;; mouse yank should go to where the mouse is, not to the point
 (setq mouse-yank-at-point nil)
-(setq mouse-autoselect-window t)
+;(setq mouse-autoselect-window t)
 
 ;; printing
 (setq ps-paper-type 'letter
@@ -78,7 +78,8 @@
 (display-time)
 (setq display-time-and-date t)
 
-(server-start)
+(load "server")
+(unless (server-running-p) (server-start))
 (setq-default indent-tabs-mode nil)
 ;; make next-line move by line, not displayed line
 (setq line-move-visual nil)
