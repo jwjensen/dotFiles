@@ -1,0 +1,41 @@
+#!/bin/bash -x
+#
+# With no arguments, start the vm named by $0, prompt for RDP password.
+# supported arguments:
+#   sleep or save:  suspend vm to disk
+#   shutdown:       acpi shutdown (boot from bios on next start)
+#   passwd:         set the RDP password via VBoxAuthSimple, overwrites
+#                   existing passwd without validation. (for external security,
+#                   not access to machine)
+
+# set appropriate window x, y, depth:
+x=1190
+y=1832
+depth=32
+#
+declare -A ports
+ports=(["vjjvsdev81"]=3389
+       ["DW BI client_1"]=3390)
+declare -A resolutions
+resolutions=(["vjjvsdev81"]="1190 1832 32"
+             ["DW BI client_1"]="2380 1832 32")
+
+############
+vm=$(basename "$0")
+arg=$1
+if [ $# == 0 ] ; then
+    VBoxManage startvm "$vm" -type headless
+    VBoxManage controlvm "$vm" setvideomodehint ${resolutions[$vm]}
+    read -p "Password: " -s passwd
+    echo "$passwd" | rdesktop -r clipboard:PRIMARYCLIPBOARD -u $USER -p - localhost:${ports[$vm]}
+elif [ $arg == "sleep" -o $arg == "save" ] ; then
+    VBoxManage controlvm "$vm" savestate
+elif [ $arg == "shutdown" ] ; then
+    VBoxManage controlvm "$vm" acpipowerbutton
+elif [ $arg == "passwd" ] ; then
+    read -p "Enter new password: " -s passwd
+    VBoxManage setproperty vrdeauthlibrary VBoxAuthSimple
+    VBoxManage modifyvm "$vm" --vrdeauthtype external
+    hash=`VBoxManage internalcommands passwordhash "$passwd" | cut -d: -f 2`
+    VBoxManage setextradata "$vm" "VBoxAuthSimple/users/$USER" $hash
+fi
