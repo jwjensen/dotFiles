@@ -32,6 +32,7 @@
   '(better-defaults
     ein
     elpy
+    highlight-indentation
     flycheck
     paper-theme
     material-theme
@@ -40,6 +41,8 @@
     git-commit
     magit
     plsql
+    pkg-info
+    
     ;pdf-tools
     ;pdf-tools-server
     tablist
