@@ -135,7 +135,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-PATH=$PATH:$HOME/.local/bin  # add ~/.local for pip installed scripts
+PATH=$PATH:.:$HOME/.local/bin  # add ~/.local for pip installed scripts
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
