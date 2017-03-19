@@ -43,7 +43,7 @@ case "$TERM" in
 esac
 if [ JEJ$EMACS = JEJt ] ; then
     color_prompt=yes
-    export GIT_PAGER=
+    export GIT_PAGER=cat
 fi
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
