@@ -11,10 +11,10 @@
 	desc = describe
 	lg = log --pretty='%Cred%h%Creset | %C(blue)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)[%an]%Creset' --graph
         dp = diff --word-diff --unified=5
-        lol = log --graph --oneline --decorate --color --all
-
+	so = show --pretty='Parent: %Cred%p%Creset Commit: %C(red)%h%Creset%C(yellow)%d%Creset%n%n%w(72,2,2)%s%n%n%w(72,0,0)%C(cyan)%an%Creset %Cgreen%ar%Creset'
+	lol = log --graph --oneline --decorate --color --all
 [diff]
-        algorithm = histogram
+	algorithm = histogram
 
 [apply]
 	whitespace = nowarn
@@ -31,6 +31,7 @@
         hideDotFiles = dotGitOnly
         longpaths = true
 	pager = less -RFX
+	whitespace = indent-with-non-tab,
 
 [help]
 	autocorrect = 1
