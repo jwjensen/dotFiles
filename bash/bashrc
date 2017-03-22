@@ -41,7 +41,7 @@ fi
 case "$TERM" in
     screen|xterm*) color_prompt=yes;;
 esac
-if [ JEJ$EMACS = JEJt ] ; then
+if [ ! JEJ$INSIDE_EMACS = JEJ ] ; then
     color_prompt=yes
     export GIT_PAGER=cat
 fi
