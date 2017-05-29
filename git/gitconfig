@@ -1,6 +1,9 @@
+[include]
+        file = ~/.gitconfig.local
+
 [user]
 	name = Jim Jensen
-	email = jjensen@nedelta.com
+
 [alias]
 	co = checkout
 	stat = status --short --branch
