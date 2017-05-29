@@ -1,5 +1,5 @@
 [include]
-        file = ~/.gitconfig.local
+        path = ~/.gitconfig.local
 
 [user]
 	name = Jim Jensen
@@ -42,3 +42,7 @@
 [color]
 	ui = auto
 
+[guitool "emacsclient"]
+	cmd = emacsclient $FILENAME
+	noconsole = yes
+	needsfile = yes
