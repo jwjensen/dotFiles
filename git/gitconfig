@@ -16,6 +16,8 @@
         dp = diff --word-diff --unified=5
 	so = show --pretty='Parent: %Cred%p%Creset Commit: %C(red)%h%Creset%C(yellow)%d%Creset%n%n%w(72,2,2)%s%n%n%w(72,0,0)%C(cyan)%an%Creset %Cgreen%ar%Creset'
 	lol = log --graph --oneline --decorate --color --all
+	lola = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	testmerge = merge --no-ff --no-commit
 [diff]
 	algorithm = histogram
 
@@ -46,3 +48,5 @@
 	cmd = emacsclient $FILENAME
 	noconsole = yes
 	needsfile = yes
+[pull]
+	rebase = true
