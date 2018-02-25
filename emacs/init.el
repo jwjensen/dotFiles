@@ -6,6 +6,9 @@
  '(custom-safe-themes
    (quote
     ("fe1682ca8f7a255cf295e76b0361438a21bb657d8846a05d9904872aa2fb86f2" "2305decca2d6ea63a408edd4701edf5f4f5e19312114c9d1e1d5ffe3112cde58" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "e97dbbb2b1c42b8588e16523824bc0cb3a21b91eefd6502879cf5baa1fa32e10" "f3d6a49e3f4491373028eda655231ec371d79d6d2a628f08d5aa38739340540b" default)))
+ '(elpy-modules
+   (quote
+    (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults)))
  '(package-selected-packages
    (quote
     (sqlplus ace-window golden-ratio ztree persp-projectile paredit markdown-mode js2-mode helm-projectile geiser flx-ido expand-region editorconfig aggressive-indent zenburn-theme sql-indent smart-mode-line py-autopep8 powerline plsql pdf-tools paper-theme org-bullets material-theme malabar-mode magit flycheck fill-column-indicator elpy ein better-defaults afternoon-theme)))
