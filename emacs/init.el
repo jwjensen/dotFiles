@@ -147,9 +147,9 @@
              ("\\.java$" . java-mode)
              ("\\.cs$" . csharp-mode)) auto-mode-alist))
 
-
+(setq python-shell-interpreter "ipython3"
+      python-shell-interpreter-args "-i --simple-prompt")
 (elpy-enable)
-(elpy-use-ipython)
 
 ;; use flycheck not flymake with elpy
 (when (require 'flycheck nil t)
