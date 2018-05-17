@@ -50,3 +50,5 @@
 	needsfile = yes
 [pull]
 	rebase = true
+[merge]
+	stat = true
