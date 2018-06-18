@@ -150,7 +150,10 @@
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
-
+;;;
+;; mkvirtualenv Scratch -p /usr/bin/python3
+;; pip install rope jedi importmagic autopep8 flak8e
+;; python -m pip install jupyter yapf black
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -161,3 +164,4 @@
 
 
 ;; https://github.com/kpurdon/.emacs.d
+;; https://elpy.readthedocs.io/en/latest/ide.html#interpreter-setup
