@@ -52,3 +52,7 @@
 	rebase = true
 [merge]
 	stat = true
+	tool = kdiff3
+[gitreview]
+	remote = origin
+	username = jensen
