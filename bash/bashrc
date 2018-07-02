@@ -144,5 +144,5 @@ PATH=~/bin:$PATH
 #:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 #for virtualenvwrapper:
-#source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
