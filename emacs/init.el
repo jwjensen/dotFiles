@@ -21,6 +21,8 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+(package-refresh-contents)
+
 (defvar myPackages
   '(better-defaults
     material-theme
@@ -45,6 +47,9 @@
     ein ;; emacs ipython notebook M-x ein:note
     flycheck
     py-autopep8
+    polymode
+    web-mode
+    csv-mode
 ))
 
 (mapc #'(lambda (package)
@@ -71,7 +76,16 @@
 ;;; call w/ M-x fci-mode
 (require 'fill-column-indicator)
 
-
+;; webmode:  http://web-mode.org/
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 (defun jensen/vsplit-last-buffer (prefix)
   "Split the window vertically, display most recent buffer"
