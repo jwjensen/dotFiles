@@ -56,3 +56,5 @@
 [gitreview]
 	remote = origin
 	username = jensen
+[cola]
+	spellcheck = false
