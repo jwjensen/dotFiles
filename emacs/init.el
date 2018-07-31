@@ -47,6 +47,7 @@
     elpy
     ein ;; emacs ipython notebook M-x ein:note
     flycheck
+    apache-mode
     py-autopep8
     polymode
     web-mode
