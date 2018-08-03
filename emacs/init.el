@@ -9,7 +9,7 @@
  '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (fill-column-indicator smart-mode-line pdf-tools sql-indent pkg-info dired-du zenburn-theme plsql material-theme magit better-defaults)))
+    (graphviz-dot-mode fill-column-indicator smart-mode-line pdf-tools sql-indent pkg-info dired-du zenburn-theme plsql material-theme magit better-defaults)))
  '(pyvenv-virtualenvwrapper-python "/usr/bin/python3")
  '(scroll-bar-mode (quote right)))
 
@@ -52,6 +52,7 @@
     polymode
     web-mode
     csv-mode
+    graphviz-dot-mode
 ))
 
 (mapc #'(lambda (package)
