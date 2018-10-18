@@ -58,3 +58,5 @@
 	username = jensen
 [cola]
 	spellcheck = false
+[gitflow]
+	multi-hotfix = true
