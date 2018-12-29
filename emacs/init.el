@@ -1,6 +1,3 @@
-
-
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -15,9 +12,10 @@
    (quote
     (treemacs-icons-dired use-package treemacs tabbar graphviz-dot-mode fill-column-indicator smart-mode-line pdf-tools sql-indent pkg-info dired-du zenburn-theme plsql material-theme magit better-defaults)))
  '(pyvenv-virtualenvwrapper-python "/usr/bin/python3")
- '(scroll-bar-mode (quote right)))
+ '(scroll-bar-mode (quote right))
  '(send-mail-function nil)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ )
 
 (require 'package)
 
