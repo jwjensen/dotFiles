@@ -73,6 +73,7 @@
 (load-theme 'material t) ;; load theme
 (global-linum-mode t) ;; enable line numbers globally
 (tool-bar-mode -1)
+(menu-bar-mode)
 ;; mouse yank should go to where the mouse is, not to the point
 (setq mouse-yank-at-point nil)
 ;(setq mouse-autoselect-window t)
@@ -177,6 +178,9 @@
 ;; mkvirtualenv Scratch -p /usr/bin/python3
 ;; pip install rope jedi importmagic autopep8 flak8e
 ;; python -m pip install jupyter yapf black
+
+;; pay attention to Time-stamp: tags:
+(add-hook 'before-save-hook 'time-stamp)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
