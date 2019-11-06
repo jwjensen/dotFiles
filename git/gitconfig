@@ -60,3 +60,5 @@
 	spellcheck = false
 [gitflow]
 	multi-hotfix = true
+[http]
+	sslBackend = gnutls
