@@ -57,6 +57,7 @@
     csv-mode
     graphviz-dot-mode
     tabbar
+    neotree
 ))
 
 (mapc #'(lambda (package)
