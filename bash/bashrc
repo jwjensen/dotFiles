@@ -1,3 +1,4 @@
+# Also create .xsessionrc file to source ~/.env_variables!
 . ~/.env_variables
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
