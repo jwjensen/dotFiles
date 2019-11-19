@@ -10,7 +10,7 @@
  '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (virtualenvwrapper ng2-mode neotree treemacs-icons-dired use-package treemacs tabbar graphviz-dot-mode fill-column-indicator smart-mode-line pdf-tools sql-indent pkg-info dired-du zenburn-theme plsql material-theme magit better-defaults)))
+    (eshell-bookmark eshell-did-you-mean eshell-git-prompt eshell-prompt-extras eshell-toggle eshell-up powerline virtualenvwrapper ng2-mode neotree treemacs-icons-dired tabbar graphviz-dot-mode fill-column-indicator smart-mode-line pdf-tools sql-indent pkg-info dired-du zenburn-theme plsql material-theme better-defaults)))
  '(pyvenv-virtualenvwrapper-python "/usr/bin/python3")
  '(scroll-bar-mode (quote right))
  '(send-mail-function nil)
