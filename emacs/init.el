@@ -58,6 +58,15 @@
     graphviz-dot-mode
     tabbar
     neotree
+    eshell-bookmark
+    eshell-did-you-mean
+    eshell-git-prompt
+    eshell-prompt-extras
+    eshell-toggle
+    eshell-up
+    powerline
+    virtualenvwrapper
+    ng2-mode 
 ))
 
 (mapc #'(lambda (package)
@@ -189,6 +198,8 @@
  ;; If there is more than one, they won't work right.
  '(linum ((t (:background "#263238" :foreground "dim gray")))))
 
+;; fix hang waiting for x clipboard manager
+(setq x-selection-timeout 10)
 
 ;; https://github.com/kpurdon/.emacs.d
 ;; https://elpy.readthedocs.io/en/latest/ide.html#interpreter-setup
@@ -197,3 +208,6 @@
              :after treemacs dired
              :ensure t
              :config (treemacs-icons-dired-mode))
+
+
+;;;; fix gnutls issue: (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
