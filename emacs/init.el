@@ -10,22 +10,35 @@
  '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (eshell-bookmark eshell-did-you-mean eshell-git-prompt eshell-prompt-extras eshell-toggle eshell-up powerline virtualenvwrapper ng2-mode neotree treemacs-icons-dired tabbar graphviz-dot-mode fill-column-indicator smart-mode-line pdf-tools sql-indent pkg-info dired-du zenburn-theme plsql material-theme better-defaults)))
+    (eshell-bookmark eshell-did-you-mean eshell-git-prompt eshell-prompt-extras eshell-toggle eshell-up powerline virtualenvwrapper ng2-mode neotree ess treemacs-icons-dired use-package treemacs tabbar graphviz-dot-mode fill-column-indicator smart-mode-line pdf-tools sql-indent pkg-info dired-du zenburn-theme plsql material-theme magit better-defaults)))
  '(pyvenv-virtualenvwrapper-python "/usr/bin/python3")
  '(scroll-bar-mode (quote right))
  '(send-mail-function nil)
  '(tool-bar-mode nil))
 
 (require 'package)
-
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  (when no-ssl
+    (warn "\
+Your version of Emacs does not support SSL connections,
+which is unsafe because it allows man-in-the-middle attacks.
+There are two things you can do about this warning:
+1. Install an Emacs version that does support SSL and be safe.
+2. Remove this warning from your init file so you won't see it again."))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 (add-to-list 'package-archives
        '("melpa" . "https://melpa.org/packages/") t)
 
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
-
-;(package-refresh-contents)
 
 (defvar myPackages
   '(better-defaults
@@ -119,8 +132,8 @@
   (other-window 1 nil)
   (if (= prefix 1)
       (switch-to-next-buffer)))
-(global-set-key [C-x 2] 'jensen/hsplit-last-buffer)
-(global-set-key [C-x 3] 'jensen/vsplit-last-buffer)
+(global-set-key (kbd "C-x 2") 'jensen/hsplit-last-buffer)
+(global-set-key (kbd "C-x 3") 'jensen/vsplit-last-buffer)
 
 ;; printing
 (setq ps-paper-type 'letter
@@ -140,6 +153,7 @@
 (setq c-basic-offset 2)
 (global-set-key [home] 'beginning-of-buffer)
 (global-set-key [end] 'end-of-buffer)
+(global-set-key (kbd "C-x C-b") 'electric-buffer-list)
 ;; for pdf-tools
 (pdf-tools-install)
 
@@ -183,6 +197,12 @@
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
+;;;
+;; R (ESS) config
+;(require 'ess-site)
+
+
 ;;;
 ;; mkvirtualenv Scratch -p /usr/bin/python3
 ;; pip install rope jedi importmagic autopep8 flak8e
@@ -200,6 +220,9 @@
 
 ;; fix hang waiting for x clipboard manager
 (setq x-selection-timeout 10)
+
+;; eshell - git
+;(eshell-git-prompt-use-theme 'jensen)
 
 ;; https://github.com/kpurdon/.emacs.d
 ;; https://elpy.readthedocs.io/en/latest/ide.html#interpreter-setup
