@@ -14,7 +14,8 @@
  '(pyvenv-virtualenvwrapper-python "/usr/bin/python3")
  '(scroll-bar-mode (quote right))
  '(send-mail-function nil)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(visible-bell t))
 
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
@@ -132,8 +133,8 @@ There are two things you can do about this warning:
   (other-window 1 nil)
   (if (= prefix 1)
       (switch-to-next-buffer)))
-(global-set-key (kbd "C-x 2") 'jensen/hsplit-last-buffer)
-(global-set-key (kbd "C-x 3") 'jensen/vsplit-last-buffer)
+(global-set-key (kbd "C-x 3") 'jensen/hsplit-last-buffer)
+(global-set-key (kbd "C-x 2") 'jensen/vsplit-last-buffer)
 
 ;; printing
 (setq ps-paper-type 'letter
