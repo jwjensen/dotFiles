@@ -10,7 +10,7 @@
  '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (eshell-bookmark eshell-did-you-mean eshell-git-prompt eshell-prompt-extras eshell-toggle eshell-up powerline virtualenvwrapper ng2-mode neotree ess treemacs-icons-dired use-package treemacs tabbar graphviz-dot-mode fill-column-indicator smart-mode-line pdf-tools sql-indent pkg-info dired-du zenburn-theme plsql material-theme magit better-defaults)))
+    (importmagic eshell-bookmark eshell-did-you-mean eshell-git-prompt eshell-prompt-extras eshell-toggle eshell-up powerline virtualenvwrapper ng2-mode neotree ess treemacs-icons-dired use-package treemacs tabbar graphviz-dot-mode fill-column-indicator smart-mode-line pdf-tools sql-indent pkg-info dired-du zenburn-theme plsql material-theme magit better-defaults)))
  '(pyvenv-virtualenvwrapper-python "/usr/bin/python3")
  '(scroll-bar-mode (quote right))
  '(send-mail-function nil)
@@ -206,9 +206,9 @@ There are two things you can do about this warning:
 
 ;;;
 ;; mkvirtualenv Scratch -p /usr/bin/python3
-;; pip install rope jedi importmagic autopep8 flak8e
+;; pip install rope jedi importmagic autopep8 flake8
 ;; python -m pip install jupyter yapf black
-
+;; and install elisp package importmagic, epc
 ;; pay attention to Time-stamp: tags:
 (add-hook 'before-save-hook 'time-stamp)
 
