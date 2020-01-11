@@ -1,3 +1,11 @@
+;;;;;
+;;
+;; use package-show-package-list to see packages
+;;
+;; usei to install, ? for information, U to mark upgradeable, x to execute
+;;
+;;;;;
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
