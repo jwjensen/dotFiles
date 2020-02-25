@@ -144,6 +144,9 @@ PATH=~/bin:$PATH
 
 #:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+# adjust path for vs code/dotnet tools
+export PATH=$PATH:~/.dotnet/tools
+
 #for virtualenvwrapper:
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
