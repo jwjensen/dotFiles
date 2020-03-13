@@ -13,13 +13,21 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa"
+     "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e"
+     default)))
  '(display-time-mode t)
  '(elpy-rpc-python-command "python3")
  '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (csharp-mode omnisharp racket-mode blacken importmagic eshell-bookmark eshell-did-you-mean eshell-git-prompt eshell-prompt-extras eshell-toggle eshell-up powerline virtualenvwrapper ng2-mode neotree ess treemacs-icons-dired use-package treemacs tabbar graphviz-dot-mode fill-column-indicator smart-mode-line pdf-tools sql-indent pkg-info dired-du zenburn-theme plsql material-theme magit better-defaults)))
+    (csharp-mode omnisharp magit-annex racket-mode importmagic eshell-bookmark
+                 eshell-did-you-mean eshell-git-prompt eshell-prompt-extras
+                 eshell-toggle eshell-up powerline virtualenvwrapper ng2-mode
+                 neotree ess treemacs-icons-dired use-package treemacs tabbar
+                 graphviz-dot-mode fill-column-indicator smart-mode-line
+                 pdf-tools pkg-info dired-du zenburn-theme plsql material-theme
+                 magit better-defaults blacken sql-indent)))
  '(pyvenv-virtualenvwrapper-python "/usr/bin/python3")
  '(scroll-bar-mode (quote right))
  '(send-mail-function nil)
@@ -59,7 +67,6 @@ There are two things you can do about this warning:
     magit-tbdiff
     plsql
     pkg-info
-    sql-indent
     pdf-tools
     smart-mode-line
     fill-column-indicator
@@ -171,7 +178,11 @@ There are two things you can do about this warning:
   (load-library "sql-indent"))
 (require 'plsql)
 
-
+(defun my-csharp-mode-hook ()
+  ;; enable the stuff you want for C# here
+  (electric-pair-local-mode 1) ;; Emacs 25
+  )
+(add-hook 'csharp-mode-hook 'my-csharp-mode-hook)
 
 (setq auto-mode-alist
    (append '(
