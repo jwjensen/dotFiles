@@ -1,3 +1,12 @@
+;;;;;
+;;
+;; use package-show-package-list to see packages
+;;
+;; usei to install, ? for information, U to mark upgradeable, x to execute
+;;
+;;;;;
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -5,26 +14,27 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa"
+     "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(display-time-mode t)
+ '(elpy-rpc-python-command "python3")
  '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (csharp-mode csproj-mode omnisharp importmagic
+    (ess-R-data-view ess-smart-equals ess-smart-underscore ess-view
+     org csharp-mode csproj-mode omnisharp importmagic
      eshell-bookmark eshell-did-you-mean eshell-git-prompt
      eshell-prompt-extras eshell-toggle eshell-up powerline
      virtualenvwrapper ng2-mode neotree ess treemacs-icons-dired
      use-package treemacs tabbar graphviz-dot-mode
      fill-column-indicator smart-mode-line pdf-tools sql-indent
      pkg-info dired-du zenburn-theme plsql material-theme magit
-     better-defaults)))
-
+     magit-annex better-defaults blacken sql-indent)))
  '(pyvenv-virtualenvwrapper-python "/usr/bin/python3")
+ '(safe-local-variable-values (quote ((org-confirm-babel-evaluate))))
  '(scroll-bar-mode (quote right))
  '(send-mail-function nil) '(tool-bar-mode nil)
  '(visible-bell t))
-
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
@@ -59,7 +69,6 @@ There are two things you can do about this warning:
     magit-tbdiff
     plsql
     pkg-info
-    sql-indent
     pdf-tools
     smart-mode-line
     fill-column-indicator
@@ -166,12 +175,17 @@ There are two things you can do about this warning:
 (global-set-key (kbd "C-x C-b") 'electric-buffer-list)
 ;; for pdf-tools
 (pdf-tools-install)
+(add-hook 'pdf-view-mode-hook (lambda() (linum-mode 0)))
 
 (eval-after-load "sql"
   (load-library "sql-indent"))
 (require 'plsql)
 
-
+(defun my-csharp-mode-hook ()
+  ;; enable the stuff you want for C# here
+  (electric-pair-local-mode 1) ;; Emacs 25
+  )
+(add-hook 'csharp-mode-hook 'my-csharp-mode-hook)
 
 (setq auto-mode-alist
    (append '(
@@ -202,11 +216,14 @@ There are two things you can do about this warning:
 ;;       python-shell-prompt-detect-failure-warning nil)
 ;; (add-to-list 'python-shell-completion-native-disabled-interpreters
 ;;              "jupyter")
+(setq python-shell-interpreter "python"
+      python-shell-interpreter-args "-i")
 (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+(require 'find-file-in-project)
 
 ;;;
 ;; R (ESS) config
@@ -244,3 +261,10 @@ There are two things you can do about this warning:
 
 
 ;;;; fix gnutls issue: (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
+;; R execution in org-mode
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . nil)
+   (python . t)
+   (R . t)))
