@@ -167,6 +167,7 @@ There are two things you can do about this warning:
 (global-set-key (kbd "C-x C-b") 'electric-buffer-list)
 ;; for pdf-tools
 (pdf-tools-install)
+(add-hook 'pdf-view-mode-hook (lambda() (linum-mode 0)))
 
 (eval-after-load "sql"
   (load-library "sql-indent"))
