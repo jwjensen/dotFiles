@@ -5,6 +5,7 @@
 ;; usei to install, ? for information, U to mark upgradeable, x to execute
 ;;
 ;;;;;
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -13,22 +14,15 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa"
-     "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e"
-     default)))
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(display-time-mode t)
  '(elpy-rpc-python-command "python3")
  '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (csharp-mode omnisharp magit-annex racket-mode importmagic eshell-bookmark
-                 eshell-did-you-mean eshell-git-prompt eshell-prompt-extras
-                 eshell-toggle eshell-up powerline virtualenvwrapper ng2-mode
-                 neotree ess treemacs-icons-dired use-package treemacs tabbar
-                 graphviz-dot-mode fill-column-indicator smart-mode-line
-                 pdf-tools pkg-info dired-du zenburn-theme plsql material-theme
-                 magit better-defaults blacken sql-indent)))
+    (ess-R-data-view ess-smart-equals ess-smart-underscore ess-view org csharp-mode omnisharp magit-annex importmagic eshell-bookmark eshell-did-you-mean eshell-git-prompt eshell-prompt-extras eshell-toggle eshell-up powerline virtualenvwrapper ng2-mode neotree ess use-package tabbar graphviz-dot-mode fill-column-indicator smart-mode-line pkg-info dired-du plsql material-theme magit better-defaults blacken sql-indent)))
  '(pyvenv-virtualenvwrapper-python "/usr/bin/python3")
+ '(safe-local-variable-values (quote ((org-confirm-babel-evaluate))))
  '(scroll-bar-mode (quote right))
  '(send-mail-function nil)
  '(tool-bar-mode nil)
@@ -258,3 +252,10 @@ There are two things you can do about this warning:
 
 
 ;;;; fix gnutls issue: (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
+;; R execution in org-mode
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . nil)
+   (python . t)
+   (R . t)))
