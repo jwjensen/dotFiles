@@ -10,12 +10,21 @@
  '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (importmagic eshell-bookmark eshell-did-you-mean eshell-git-prompt eshell-prompt-extras eshell-toggle eshell-up powerline virtualenvwrapper ng2-mode neotree ess treemacs-icons-dired use-package treemacs tabbar graphviz-dot-mode fill-column-indicator smart-mode-line pdf-tools sql-indent pkg-info dired-du zenburn-theme plsql material-theme magit better-defaults)))
+    (csharp-mode csproj-mode omnisharp importmagic
+     eshell-bookmark eshell-did-you-mean eshell-git-prompt
+     eshell-prompt-extras eshell-toggle eshell-up powerline
+     virtualenvwrapper ng2-mode neotree ess treemacs-icons-dired
+     use-package treemacs tabbar graphviz-dot-mode
+     fill-column-indicator smart-mode-line pdf-tools sql-indent
+     pkg-info dired-du zenburn-theme plsql material-theme magit
+     better-defaults)))
+
  '(pyvenv-virtualenvwrapper-python "/usr/bin/python3")
  '(scroll-bar-mode (quote right))
- '(send-mail-function nil)
- '(tool-bar-mode nil)
+ '(send-mail-function nil) '(tool-bar-mode nil)
  '(visible-bell t))
+
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
