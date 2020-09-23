@@ -2,7 +2,9 @@
 ;;
 ;; use package-show-package-list to see packages
 ;;
-;; usei to install, ? for information, U to mark upgradeable, x to execute
+;; use i to install, ? for information, U to mark upgradeable, x to execute
+;; use M-x package-install-selected-packages to install packages in
+;;  package-selected-packages
 ;;
 ;;;;;
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
@@ -15,7 +17,8 @@
  '(custom-safe-themes
    (quote
     ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa"
-     "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
+     "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e"
+     default)))
  '(display-time-mode t)
  '(elpy-rpc-python-command "python3")
  '(global-linum-mode t)
@@ -47,12 +50,16 @@ which is unsafe because it allows man-in-the-middle attacks.
 There are two things you can do about this warning:
 1. Install an Emacs version that does support SSL and be safe.
 2. Remove this warning from your init file so you won't see it again."))
-  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
-  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  ;; Comment/uncomment these two lines to enable/disable MELPA and
+  ;; MELPA Stable as desired
+  (add-to-list 'package-archives
+               (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable"
+  ;;                         (concat proto "://stable.melpa.org/packages/")) t)
   (when (< emacs-major-version 24)
     ;; For important compatibility libraries like cl-lib
-    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+    (add-to-list 'package-archives
+                 (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 (add-to-list 'package-archives
        '("melpa" . "https://melpa.org/packages/") t)
 
@@ -98,7 +105,7 @@ There are two things you can do about this warning:
     eshell-up
     powerline
     virtualenvwrapper
-    ng2-mode 
+    ng2-mode
 ))
 
 (mapc #'(lambda (package)
