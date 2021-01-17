@@ -24,20 +24,22 @@
  '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (ess-R-data-view ess-smart-equals ess-smart-underscore ess-view
-     org csharp-mode csproj-mode omnisharp importmagic
-     eshell-bookmark eshell-did-you-mean eshell-git-prompt
-     eshell-prompt-extras eshell-toggle eshell-up powerline
-     virtualenvwrapper ng2-mode neotree ess treemacs-icons-dired
-     use-package treemacs tabbar graphviz-dot-mode
-     fill-column-indicator smart-mode-line pdf-tools sql-indent
-     pkg-info dired-du zenburn-theme plsql material-theme magit
-     magit-annex better-defaults blacken sql-indent)))
+    (ssh ess-R-data-view ess-smart-equals ess-smart-underscore
+         ess-view org csharp-mode csproj-mode omnisharp importmagic
+         eshell-bookmark eshell-did-you-mean eshell-git-prompt
+         eshell-prompt-extras eshell-toggle eshell-up powerline
+         virtualenvwrapper ng2-mode neotree ess treemacs-icons-dired
+         use-package treemacs tabbar graphviz-dot-mode
+         fill-column-indicator smart-mode-line pdf-tools sql-indent
+         pkg-info dired-du zenburn-theme plsql material-theme magit
+         magit-annex better-defaults blacken sql-indent)))
  '(pyvenv-virtualenvwrapper-python "/usr/bin/python3")
  '(safe-local-variable-values (quote ((org-confirm-babel-evaluate))))
  '(scroll-bar-mode (quote right))
- '(send-mail-function nil) '(tool-bar-mode nil)
- '(visible-bell t))
+ '(send-mail-function nil)
+ '(tool-bar-mode nil)
+ '(visible-bell t)
+ )
 
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
