@@ -150,3 +150,6 @@ export PATH=$PATH:~/.dotnet/tools
 #for virtualenvwrapper:
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
+#nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
