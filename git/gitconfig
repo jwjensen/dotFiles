@@ -53,6 +53,7 @@
 [merge]
 	stat = true
 	tool = kdiff3
+	renamelimit = 10000
 [gitreview]
 	remote = origin
 	username = jensen
