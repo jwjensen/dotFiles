@@ -108,6 +108,9 @@ There are two things you can do about this warning:
     powerline
     virtualenvwrapper
     ng2-mode
+    use-package
+    find-file-in-project
+    sql-indent
 ))
 
 (mapc #'(lambda (package)
