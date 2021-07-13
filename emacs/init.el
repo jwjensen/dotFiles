@@ -85,6 +85,7 @@ There are two things you can do about this warning:
 (unless (server-running-p) (server-start))
 
 (setq c-basic-offset 2)
+(setq indent-tabs-mode nil) ;; do NOT use tabs.
 ;;----------------------------------------------------------
 ;; interactive behavior
 (setq mouse-yank-at-point nil)
