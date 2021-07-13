@@ -119,5 +119,6 @@ There are two things you can do about this warning:
                 term-mode-hook
                 shell-mode-hook
                 treemacs-mode-hook
+		comint-mode-hook
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
