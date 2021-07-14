@@ -123,3 +123,21 @@ There are two things you can do about this warning:
 		comint-mode-hook
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(rainbow-delimiters emacsql-sqlite3 zenburn-theme web-mode virtualenvwrapper use-package treemacs-icons-dired tabbar sql-indent smart-mode-line py-autopep8 powerline plsql pdf-tools paredit ng2-mode neotree material-theme magit-tbdiff js2-mode graphviz-dot-mode forge flycheck find-file-in-project fill-column-indicator expand-region eshell-up eshell-toggle eshell-prompt-extras eshell-git-prompt eshell-did-you-mean eshell-bookmark elpy ein doom-modeline csv-mode counsel command-log-mode better-defaults apache-mode aggressive-indent)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
